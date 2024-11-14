@@ -1,0 +1,6 @@
+paste images in data/ogimages to train
+paste your image(s) in data/imagepredict
+
+unzip processed.zip and put folder in data/
+if not using original images to train
+run main.py
