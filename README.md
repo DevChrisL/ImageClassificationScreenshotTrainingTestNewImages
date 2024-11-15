@@ -1,5 +1,5 @@
 
-# Image Classification for Fallout: New Vegas Screenshots
+# Machine Learning Image Classification for Fallout: New Vegas Screenshots
 
 This repository leverages a pre-trained VGG16 model (from TensorFlow) for image classification, with a focus on identifying screenshots from the game *Fallout: New Vegas - Tale of Two Wastelands*. Although initially set up for this specific game, the project is versatile and can be adapted to classify images based on any dataset provided by the user.
 
