@@ -62,10 +62,11 @@ python main.py
 The script will:
 - Check for images in `data/ogimages/` and `data/imagepredict/`
 - Preprocess images
+- If no images `data/ogimages/` it will use preprocessed images from `data/processed/`
 - Train the model if no saved model is found
 - Save the trained model as `trained_model.h5`
 - Prediction using the trained model and images from `data/imagepredict/`
-- Training skipped if no train images are found and trained model exists
+- Training skipped if no training images are found and trained model exists
 - Option to predict only if images `data/ogimages/` and `trained_model.h5` exist
 
 Each image is evaluated, and the output will state whether it is classified as "real" or "fake."
