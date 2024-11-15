@@ -17,7 +17,7 @@ After training on the Fallout dataset, users can test their own images. The mode
 
 ## Installation and Requirements
 
-Ensure you have Python installed, then install dependencies with:
+Ensure you have Python(3.9-3.12) installed, then install dependencies with:
 
 ```bash
 pip install -r requirements.txt
