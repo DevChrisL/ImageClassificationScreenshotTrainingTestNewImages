@@ -11,7 +11,7 @@ def main():
     #check if there are images in data/ogimages and training model
     if (os.path.isfile("trained_model.h5")) and not (any(os.path.isfile(os.path.join("data/ogimages", f)) for f in os.listdir("data/ogimages"))):
         print("A trained model already exists.\nBut no original images found to train model. Jumping to prediction.\n")
-        run_prediction()
+        runPrediction()
         sys.exit(1)#end before loop
     
     #check if there are images in data/ogimages
@@ -22,8 +22,8 @@ def main():
             sys.exit(1)#exit no images found
         else:
             print("No trained model found, training the model with available processed images...\n")
-            run_scripts()#run all steps if user chooses re-train
-            run_prediction()
+            runScripts()#run all steps if user chooses re-train
+            runPrediction()
             sys.exit(1)#exit
             
 
@@ -31,27 +31,27 @@ def main():
         while True:#loop for user input
             choice = input("A trained model already exists and images for training found.\n1. Re-train model\n2. Jump to prediction\nYour choice:")
             if choice == "1":
-                run_scripts()#run all steps if user chooses re-train
-                run_prediction()
+                runScripts()#run all steps if user chooses re-train
+                runPrediction()
                 break
             elif choice == "2":
-                run_prediction()#just predict
+                runPrediction()#just predict
                 break
             else:
                 print("\nInvalid choice, try again.\n")#if anything but 1 or 2 is typed in then redo loop.
     else:
         print("No trained model found, training the model...")
-        run_scripts()#run all steps if no trained model exists
-        run_prediction()#run image predict
+        runScripts()#run all steps if no trained model exists
+        runPrediction()#run image predict
 
-def run_scripts():
+def runScripts():
     scripts = ["renumberimage.py", "makefakes.py", "resize.py", "imageclassification.py"]
     for script in scripts:
         print(f"Running {script}...")
         subprocess.run(["python", script], check=True)#run each script in order
         print(f"Finished {script}")
 
-def run_prediction():
+def runPrediction():
     subprocess.run(["python", "imagepredict.py"], check=True)#run prediction script
 
 if __name__ == "__main__":
